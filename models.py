@@ -26,17 +26,17 @@ class Pet(db.Model):
         primary_key=True,
         autoincrement=True)
     name = db.Column(
-        db.String(100)
+        db.String(150)
     )
     species = db.Column(
-        db.String(50)
+        db.String(100)
     )
     photo_url = db.Column(
         db.Text,
         default=""
     )
     age = db.Column(
-        db.String(4)
+        db.String(20)
     )
     notes = db.Column(
         db.Text,

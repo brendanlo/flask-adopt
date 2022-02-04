@@ -2,19 +2,26 @@
 
 {% block content %}
 
-{% for pet in pets %}
+<div class='container'>
+    <div class='row'>
+        <h1>PETS</h1>
 
-<div>
-    <p>{{pet.name}}</p>
-    <img src={{pet.photo_url}}>
+        {% for pet in pets %}
 
-    {% if pet.available %}
+        <div class='col-12'>
+            <p>{{pet.name}}</p>
+            <img class='img-fluid' src="{{pet.photo_url}}"">
+
+        {% if pet.available %}
         <b>AVAILABLE</b>
-    {% endif %}
+        {% endif %}
 
-</div>
+        </div>
 
 {% endfor %}
 
 
 {% endblock %}
+
+</div>
+</div>
