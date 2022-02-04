@@ -4,7 +4,7 @@ from wtforms import StringField, SelectField, TextAreaField
 """Forms for adopt app."""
 
 
-class AddPetForm():
+class AddPetForm(FlaskForm):
     """Form for adding a pet"""
 
     name = StringField('Pet Name')

@@ -16,8 +16,18 @@ crystal = Pet(
     notes = "Very friendly"
 )
 
+fransicle = Pet(
+    name = "Fransicle",
+    species = "Dog",
+    photo_url = 'https://images-na.ssl-images-amazon.com/images/I/61DCxVe0y9L.jpg',
+    age = "senior",
+    notes = "Sad sometimes"
+)
+
 # Add new pets to session, so they'll persist
 db.session.add(crystal)
+db.session.add(fransicle)
+
 
 
 # Commit--otherwise, this never gets saved!
