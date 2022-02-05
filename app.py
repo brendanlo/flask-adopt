@@ -1,11 +1,9 @@
 """Flask app for adopt app."""
 
 from flask import Flask, render_template, redirect
-
 from flask_debugtoolbar import DebugToolbarExtension
 
 from models import db, connect_db, Pet
-
 from forms import AddPetForm, EditPetForm
 
 
@@ -31,6 +29,7 @@ toolbar = DebugToolbarExtension(app)
 @app.get("/")
 def display_homepage():
     """Display homepage with all pets"""
+
     pets = Pet.query.all()
     return render_template("homepage.html", pets=pets)
 
@@ -56,14 +55,19 @@ def add_pet():
 
         print(pet)
 
-        return redirect("/add")
+        return redirect("/")
     else:
         return render_template("add_pet.html", form=form)
 
 
 @app.route("/<int:id>", methods=["GET", "POST"])
 def edit_pet_and_display(id):
-    """Display pet detail page and handle the form processing to edit"""
+    """
+    GET: Display pet detail page
+   
+    POST: Handle the form processing to edit
+    
+    """
 
     pet = Pet.query.get_or_404(id)
     form = EditPetForm(obj=pet)
@@ -77,7 +81,7 @@ def edit_pet_and_display(id):
         pet.notes = notes
         pet.available = available
 
-        db.session.add(pet)
+        # db.session.add(pet)
         db.session.commit()
 
         print(pet)

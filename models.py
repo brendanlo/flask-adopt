@@ -25,6 +25,7 @@ class Pet(db.Model):
         db.Integer,
         primary_key=True,
         autoincrement=True)
+    # TODO: nullable = false
     name = db.Column(
         db.String(150)
     )
