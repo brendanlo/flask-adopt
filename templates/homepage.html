@@ -8,12 +8,14 @@
 
         {% for pet in pets %}
 
-        <div class='col-3'>
-            <p>{{pet.name}}</p>
-            <img class='img-fluid' src="{{pet.photo_url}}"">
+        <a href="/{{pet.id}}">
+            <div class='col-3'>
+                <p>{{pet.name}}</p>
+                <img class='img-fluid' src="{{pet.photo_url}}"">
 
-        {% if pet.available %}
-        <b>AVAILABLE</b>
+            {% if pet.available %}
+            <b>AVAILABLE</b>
+        </a>
         {% endif %}
 
         </div>

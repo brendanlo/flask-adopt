@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, TextAreaField, RadioField
+from sqlalchemy import Boolean
+from wtforms import StringField, SelectField, TextAreaField, BooleanField
 from wtforms.validators import InputRequired, Optional, AnyOf, Length, URL
 
 """Forms for adopt app."""
@@ -30,8 +31,5 @@ class EditPetForm(FlaskForm):
 
     photo_url = StringField('Photo URL', validators=[Optional(), URL()])
     notes = TextAreaField('Notes', validators=[Optional(), Length(max=1000)])
-    available = RadioField(
-        'Available for Adoption', 
-        choices=[
-            ('yes', 'Yes'), 
-            ('no', 'No')])
+    available = BooleanField(
+        'Available for Adoption')
